@@ -309,18 +309,18 @@ a {
 }
 
 .btn:hover {
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 
 .btn-primary {
   background: linear-gradient(135deg, var(--purple) 0%, var(--purple-deep) 100%);
-  color: var(--white);
+  color: #d4b86a !important;
   box-shadow: 0 8px 24px rgba(91, 45, 130, 0.28);
 }
 
 .btn-primary:hover {
   box-shadow: 0 12px 32px rgba(91, 45, 130, 0.35);
-  color: var(--white);
+  color: #ffffff !important;
 }
 
 .btn-outline {
