@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brands &amp; Platforms | Golden Praxis Trading LLC</title>
+  <meta name="description" content="The FMCG brands we distribute and the GCC marketplaces we activate them on — Amazon.ae, Noon, Carrefour, and more.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html"><img src="images/logo-original.png" onerror="this.src='images/logo.svg'" alt="Golden Praxis" height="44" style="width:auto"></a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li class="nav-item has-dropdown">
+            <a href="services.html">Services</a>
+            <div class="dropdown">
+              <a href="services.html#online-distribution">Online Distribution</a>
+              <a href="services.html#brand-management">Brand Management</a>
+              <a href="services.html#import-export">Import &amp; Export</a>
+            </div>
+          </li>
+          <li><a href="brands.html" class="active">Brands</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li class="header-cta"><a class="btn btn-primary btn-sm btn-arrow" href="contact.html">Get in touch</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ── Page hero ── -->
+    <section class="page-hero">
+      <div class="page-hero-bg" aria-hidden="true"></div>
+      <div class="page-hero-grid container">
+        <div class="page-hero-inner">
+          <span class="page-hero-label">Brands &amp; Platforms</span>
+          <h1>The brands we grow, the channels we use</h1>
+          <p>From food and personal care to household goods — we bring brands to GCC shelves and screens with confidence.</p>
+        </div>
+        <div class="page-hero-visual" aria-hidden="true">
+          <canvas class="page-hero-canvas" data-page-hero-canvas></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Intro stats ── -->
+    <section class="stats-band" aria-label="Brand portfolio stats">
+      <div class="container stats-grid">
+        <div class="stat-item reveal reveal-delay-1">
+          <span class="stat-number" data-count="50" data-suffix="+">50+</span>
+          <span class="stat-label">Brand partners in portfolio</span>
+        </div>
+        <div class="stat-item reveal reveal-delay-2">
+          <span class="stat-number" data-count="8" data-suffix="+">8+</span>
+          <span class="stat-label">FMCG categories covered</span>
+        </div>
+        <div class="stat-item reveal reveal-delay-2">
+          <span class="stat-number" data-count="8" data-suffix="">8</span>
+          <span class="stat-label">Major GCC platforms we sell on</span>
+        </div>
+        <div class="stat-item reveal reveal-delay-3">
+          <span class="stat-number" data-count="5" data-suffix="">5</span>
+          <span class="stat-label">GCC markets reached</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Brand logo grid with filters ── -->
+    <section class="partners-section section-surface" aria-label="Brand partners">
+      <div class="container">
+        <div class="partners-block">
+          <div class="section-head centered reveal">
+            <span class="eyebrow">Our brands</span>
+            <h2>Brands we work with</h2>
+            <p>A curated portfolio of food, personal care, and household names — imported, distributed, and marketed across the GCC.</p>
+          </div>
+
+          <!-- Category filters -->
+          <div class="filter-bar reveal reveal-delay-1">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="food">Food &amp; Beverages</button>
+            <button class="filter-btn" data-filter="spices">Spices &amp; Condiments</button>
+            <button class="filter-btn" data-filter="personal">Personal Care</button>
+            <button class="filter-btn" data-filter="household">Household</button>
+            <button class="filter-btn" data-filter="health">Health &amp; Wellness</button>
+          </div>
+
+          <!-- Static brand tiles (replace with partners.js dynamic loading or logos) -->
+          <div class="logo-grid" id="brand-logos">
+            <div class="logo-tile logo-tile--fallback brand-tile reveal reveal-delay-1" data-category="food">
+              <span class="logo-tile-label">Al Marai</span>
+            </div>
+            <div class="logo-tile logo-tile--fallback brand-tile reveal reveal-delay-2" data-category="food">
+              <span class="logo-tile-label">Nestlé</span>
+            </div>
+            <div class="logo-tile logo-tile--fallback brand-tile reveal reveal-delay-1" data-category="food">
+              <span class="logo-tile-label">Britannia</span>
+            </div>
+            <div class="logo-tile logo-tile--fallback brand-tile reveal reveal-delay-2" data-category="food">
+              <span class="logo-tile-label">Parle</span>
+            </div>
+            <div class="logo-tile logo-tile--fallback brand-tile reveal reveal-delay-3" data-category="food">
+              <span class="logo-tile-label">Haldiram's</span>
+            </div>
+            <div class="logo-tile logo-tile--fallback brand-tile reveal reveal-delay-1" data-category="spices">
+              <span class="logo-tile-label">MDH Spices</span>
+            </div>
+            <div class="logo-tile logo-tile--fallback brand-tile reveal reveal-delay-2" data-category="spices">
+              <span class="logo-tile-label">Everest</span>
+            </div>
+            <div class="logo-tile logo-tile--fallback brand-tile reveal reveal-delay-3" data-category="spices">
+              <span class="logo-tile-label">Priya</span>
+            </div>
+            <div class="logo-tile logo-tile--fallback brand-tile reveal reveal-delay-1" data-category="personal">
+              <span class="logo-tile-label">Dabur</span>
+            </div>
+            <div class="logo-tile logo-tile--fallback brand-tile reveal reveal-delay-2" data-category="personal">
+              <span class="logo-tile-label">Patanjali</span>
+            </div>
+            <div class="logo-tile logo-tile--fallback brand-tile reveal reveal-delay-3" data-category="personal">
+              <span class="logo-tile-label">Himalaya</span>
+            </div>
+            <div class="logo-tile logo-tile--fallback brand-tile reveal reveal-delay-1" data-category="household">
+              <span class="logo-tile-label">Reckitt</span>
+            </div>
+            <div class="logo-tile logo-tile--fallback brand-tile reveal reveal-delay-2" data-category="household">
+              <span class="logo-tile-label">P&amp;G</span>
+            </div>
+            <div class="logo-tile logo-tile--fallback brand-tile reveal reveal-delay-3" data-category="household">
+              <span class="logo-tile-label">Unilever</span>
+            </div>
+            <div class="logo-tile logo-tile--fallback brand-tile reveal reveal-delay-1" data-category="health">
+              <span class="logo-tile-label">ITC</span>
+            </div>
+            <div class="logo-tile logo-tile--fallback brand-tile reveal reveal-delay-2" data-category="health">
+              <span class="logo-tile-label">Zandu</span>
+            </div>
+          </div>
+          <p style="text-align:center;color:var(--ink-muted);font-size:0.875rem;margin-top:1.5rem">
+            Replace tile labels with real logos — place files in <code style="color:var(--purple);font-size:0.8125rem">images/brands/</code>
+          </p>
+        </div>
+
+        <!-- ── Platforms ── -->
+        <div class="partners-block">
+          <div class="section-head centered reveal">
+            <span class="eyebrow">Our channels</span>
+            <h2>Platforms we sell on</h2>
+            <p>We onboard, fulfill, and grow SKUs where GCC consumers already shop — with established accounts and ad expertise on every platform.</p>
+          </div>
+          <div class="logo-grid" id="platform-logos">
+            <div class="logo-tile logo-tile--fallback reveal reveal-delay-1">
+              <span class="logo-tile-label">Amazon.ae</span>
+            </div>
+            <div class="logo-tile logo-tile--fallback reveal reveal-delay-2">
+              <span class="logo-tile-label">Amazon.sa</span>
+            </div>
+            <div class="logo-tile logo-tile--fallback reveal reveal-delay-1">
+              <span class="logo-tile-label">Noon UAE</span>
+            </div>
+            <div class="logo-tile logo-tile--fallback reveal reveal-delay-2">
+              <span class="logo-tile-label">Noon KSA</span>
+            </div>
+            <div class="logo-tile logo-tile--fallback reveal reveal-delay-3">
+              <span class="logo-tile-label">Talabat Mart</span>
+            </div>
+            <div class="logo-tile logo-tile--fallback reveal reveal-delay-1">
+              <span class="logo-tile-label">Carrefour</span>
+            </div>
+            <div class="logo-tile logo-tile--fallback reveal reveal-delay-2">
+              <span class="logo-tile-label">LuLu Hypermarket</span>
+            </div>
+            <div class="logo-tile logo-tile--fallback reveal reveal-delay-3">
+              <span class="logo-tile-label">Instashop</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Experience strip ── -->
+    <section class="experience-strip" aria-label="Brand reach">
+      <div class="container experience-grid">
+        <div class="experience-lead reveal">
+          <h2>Strong across <em>every</em> FMCG category</h2>
+          <p>Our network spans food, personal care, household, and specialty goods — giving brands access to the right buyers from day one.</p>
+        </div>
+        <div class="experience-stat reveal reveal-delay-1">
+          <strong>8+</strong>
+          <span>FMCG categories covered</span>
+        </div>
+        <div class="experience-stat reveal reveal-delay-2">
+          <strong>8</strong>
+          <span>Major GCC platforms activated</span>
+        </div>
+        <div class="experience-stat reveal reveal-delay-3">
+          <strong>UAE &amp; KSA</strong>
+          <span>Primary markets served</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Partner brand criteria ── -->
+    <section class="section-surface">
+      <div class="container">
+        <div class="section-head centered reveal">
+          <span class="eyebrow">What we look for</span>
+          <h2>Partner brand criteria</h2>
+          <p>We are selective about the brands we take on — because our commitment is long-term, not transactional.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card reveal reveal-delay-1">
+            <h3>Product quality</h3>
+            <p>Brands with consistent, proven quality that can withstand the scrutiny of GCC regulators and discerning consumers.</p>
+          </article>
+          <article class="service-card reveal reveal-delay-2">
+            <h3>Supply reliability</h3>
+            <p>Manufacturers who can meet consistent minimum order quantities and provide timely replenishment.</p>
+          </article>
+          <article class="service-card reveal reveal-delay-3">
+            <h3>Category fit</h3>
+            <p>Products that address real GCC consumer needs — with pricing and positioning suited to the market.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Want to list your brand ── -->
+    <section class="section-muted">
+      <div class="container split">
+        <div class="reveal">
+          <span class="eyebrow">Want to list your brand?</span>
+          <h2 class="section-title-inline">We're always looking for the right brands</h2>
+          <p class="section-lead">If you manufacture or own an FMCG brand and are looking for a serious GCC distribution partner — let's talk. We assess every inquiry against our market knowledge and current portfolio.</p>
+          <ul class="feature-list">
+            <li>Food, personal care, and household categories preferred</li>
+            <li>India-origin brands with strong domestic track records welcome</li>
+            <li>Emerging brands supported alongside established ones</li>
+            <li>Halal-certified products advantaged for GCC markets</li>
+          </ul>
+          <div style="margin-top:2rem">
+            <a class="btn btn-primary btn-arrow" href="contact.html">Submit your brand</a>
+          </div>
+        </div>
+        <div class="feature-visual reveal reveal-delay-1">
+          <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=900&q=80" alt="FMCG product selection">
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA ── -->
+    <section class="cta-band">
+      <div class="container">
+        <h2 class="reveal">Want your brand in the GCC?</h2>
+        <p class="reveal reveal-delay-1">We will review your portfolio and outline a realistic path to market across retail and e-commerce.</p>
+        <div class="cta-actions reveal reveal-delay-2">
+          <a class="btn btn-gold btn-arrow" href="contact.html">Get in touch</a>
+          <a class="btn btn-outline-light btn-arrow" href="services.html">Our services</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="logo" href="index.html"><img src="images/logo-original-2.png" alt="Golden Praxis" style="height:52px;width:auto"></a>
+          <p>FMCG import, distribution, brand management, and e-commerce across the GCC.</p>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html#online-distribution">Online Distribution</a></li>
+            <li><a href="services.html#brand-management">Brand Management</a></li>
+            <li><a href="services.html#import-export">Import &amp; Export</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="brands.html">Brands &amp; Platforms</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Golden Praxis General Trading LLC</span>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/company/golden-praxis/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="https://www.instagram.com/goldenpraxisuae/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a class="fab-top" href="#" aria-label="Back to top">↑</a>
+  <script src="js/main.js"></script>
+  <script src="js/page-hero-canvas.js"></script>
+</body>
+</html>

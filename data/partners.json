@@ -1,0 +1,28 @@
+{
+  "brands": [
+    { "name": "Dhathri",    "logo": "images/brand-dhathri.png"    },
+    { "name": "AmbiPur",       "logo": "images/brand-ambipur.png"      },
+    { "name": "Ujala",       "logo": "images/brand-ujala.png"      },
+    { "name": "Clipp",    "logo": "images/brand-clipp.png"   },
+    { "name": "Royal Family",      "logo": "images/brand-royalfamily.png"     },
+    { "name": "Brylcreem",         "logo": "images/brand-brylcreem.png"         },
+    { "name": "Stepp",         "logo": "images/brand-stepp.png"         },
+    { "name": "Bench",         "logo": "images/brand-bench.png"         },
+    { "name": "HoneyTwigs",         "logo": "images/brand-honeytwigs.png"         },
+    { "name": "CatChoize",         "logo": "images/brand-catchoize.png"         },
+    { "name": "Charmie",         "logo": "images/brand-charmie.png"         },
+    { "name": "AlMadina",         "logo": "images/brand-madina.png"         }
+  ],
+  "platforms": [
+    { "name": "Amazon.ae",        "logo": "images/platform-amazon.png"     },
+    { "name": "Noon",             "logo": "images/platform-noon.png"       },
+    { "name": "Talabat",     "logo": "images/platform-talabat.png"    },
+    { "name": "Smiles",        "logo": "images/platform-smiles.png"  },
+    { "name": "Trendyol",          "logo": "images/platform-trendyol.png"    },
+    { "name": "Careem",          "logo": "images/platform-careem.png"    },
+    { "name": "Temu",          "logo": "images/platform-temu.png"},
+    { "name": "Mumzworld",          "logo": "images/platform-mumzworld.png"},
+    { "name": "Tradeling",          "logo": "images/platform-tradeling.png"},
+    { "name": "El Grocer",          "logo": "images/platform-elgrocer.png"}
+  ]
+}
