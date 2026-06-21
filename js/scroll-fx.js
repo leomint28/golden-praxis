@@ -82,21 +82,6 @@
     });
   });
 
-  /* ── 6. Magnetic CTA buttons ──────────────────────────────────────────── */
-  document.querySelectorAll('.btn-gold, .btn-primary').forEach(btn => {
-    btn.addEventListener('mousemove', e => {
-      const r  = btn.getBoundingClientRect();
-      const dx = (e.clientX - r.left - r.width  / 2) * 0.3;
-      const dy = (e.clientY - r.top  - r.height / 2) * 0.3;
-      btn.style.transform  = `translate(${dx}px,${dy}px)`;
-      btn.style.transition = 'transform 0.1s ease';
-    });
-    btn.addEventListener('mouseleave', () => {
-      btn.style.transform  = '';
-      btn.style.transition = 'transform 0.5s cubic-bezier(0.4,0,0.2,1)';
-    });
-  });
-
   /* ── 7. Eyebrow line draw-in on scroll ────────────────────────────────── */
   if ('IntersectionObserver' in window) {
     const eyebrowObs = new IntersectionObserver(
