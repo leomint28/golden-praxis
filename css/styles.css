@@ -1954,28 +1954,20 @@ section {
 
   .hero-body {
     max-width: none;
-    min-height: auto;
-    padding: 0 clamp(1.25rem, 5vw, 4.5rem);
-  }
-
-  .hero-media {
-    position: relative;
-    top: auto;
-    transform: none;
     width: 100%;
-    aspect-ratio: 4 / 3;
-    -webkit-mask-image: none;
-    mask-image: none;
+    min-height: auto;
+    padding: 0 clamp(1.25rem, 5vw, 2.5rem);
+    justify-content: center;
+    text-align: center;
   }
 
-  .hero-media-fade {
-    background: linear-gradient(
-      165deg,
-      var(--purple-deep) 0%,
-      rgba(30, 10, 48, 0.96) 38%,
-      rgba(42, 15, 66, 0.78) 58%,
-      rgba(42, 15, 66, 0.42) 78%
-    );
+  .hero-content .hero-actions {
+    justify-content: center;
+  }
+
+  /* Hide video entirely on mobile — content only */
+  .hero-media {
+    display: none;
   }
 
   .split,
