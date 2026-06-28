@@ -31,7 +31,6 @@
   }
 
   /* ── 3. Hero parallax ─────────────────────────────────────────────────── */
-  const heroMedia  = document.querySelector('.hero-media');
   const pageHeroBg = document.querySelector('.page-hero-bg');
 
   /* ── 4. Scroll-driven updates ─────────────────────────────────────────── */
@@ -51,9 +50,6 @@
 
     // Parallax — hero video/photo
     // Keep the CSS -50% vertical-centre offset and add the scroll shift on top
-    if (heroMedia) {
-      heroMedia.style.transform = `translateY(calc(-50% + ${scrollY * 0.15}px))`;
-    }
     // Parallax — page-hero gradient background
     if (pageHeroBg) {
       pageHeroBg.style.transform = `translateY(${scrollY * 0.1}px)`;
@@ -81,6 +77,7 @@
       card.style.transition = 'transform 0.55s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s';
     });
   });
+
 
   /* ── 7. Eyebrow line draw-in on scroll ────────────────────────────────── */
   if ('IntersectionObserver' in window) {
