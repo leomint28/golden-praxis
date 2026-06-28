@@ -38,9 +38,13 @@
       initParticles();
     }
 
+    function isMobileHeroLayout() {
+      return window.matchMedia("(max-width: 960px)").matches;
+    }
+
     function ringCenter() {
       return {
-        cx: width * 0.78,
+        cx: width * (isMobileHeroLayout() ? 0.5 : 0.78),
         cy: height * 0.5,
       };
     }

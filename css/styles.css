@@ -2419,7 +2419,8 @@ section.bm-intro-section.hero::after {
   min-height: auto;
   padding: calc(var(--header-h) + 2.5rem) 0 2.75rem;
   background: var(--purple-deep);
-  overflow: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
@@ -2440,9 +2441,6 @@ section.bm-intro-section.hero::after {
   grid-template-columns: minmax(0, 1fr) minmax(260px, min(46vw, 520px));
   gap: 1.5rem 2.5rem;
   align-items: center;
-  width: 100%;
-  max-width: none;
-  margin: 0;
 }
 
 .page-hero-inner {
@@ -2453,8 +2451,8 @@ section.bm-intro-section.hero::after {
   align-items: flex-start;
   text-align: left;
   max-width: 36rem;
-  padding-left: clamp(1.25rem, 5vw, 4.5rem);
-  padding-right: clamp(1rem, 2vw, 1.5rem);
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .page-hero-visual {
@@ -2467,7 +2465,7 @@ section.bm-intro-section.hero::after {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding-right: clamp(1.25rem, 5vw, 4.5rem);
+  padding-right: 0;
   pointer-events: none;
 }
 
@@ -2486,6 +2484,13 @@ section.bm-intro-section.hero::after {
   opacity: 0;
   transform: translateY(22px);
   animation: pageHeroIn 0.85s var(--ease) forwards;
+}
+
+.page-hero-inner h1 {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  animation: pageHeroIn 0.85s var(--ease) 0.18s forwards;
 }
 
 .page-hero-label {
@@ -3250,21 +3255,51 @@ section.bm-intro-section.hero::after {
     grid-template-columns: 1fr;
   }
 
+  .page-hero {
+    padding: calc(var(--header-h) + 1.25rem + env(safe-area-inset-top, 0px)) 0 2rem;
+  }
+
   .page-hero-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1.25rem;
+    align-items: stretch;
+    position: relative;
   }
 
   .page-hero-inner {
     max-width: none;
-    padding-right: clamp(1.25rem, 5vw, 4.5rem);
+    padding-left: 0;
+    padding-right: 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(1.85rem, 7.5vw, 2.5rem);
+    line-height: 1.15;
+  }
+
+  .page-hero p {
+    font-size: 1rem;
+    line-height: 1.6;
   }
 
   .page-hero-visual {
-    height: 180px;
-    padding-right: clamp(1.25rem, 5vw, 4.5rem);
-    padding-left: clamp(1.25rem, 5vw, 4.5rem);
-    justify-content: flex-end;
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    pointer-events: none;
+  }
+
+  .page-hero-canvas {
+    width: 100%;
+    height: 100%;
   }
 
   .experience-pillars {
@@ -3311,6 +3346,14 @@ section.bm-intro-section.hero::after {
 }
 
 @media (max-width: 600px) {
+  .page-hero {
+    padding-bottom: 1.75rem;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(1.65rem, 8.2vw, 2rem);
+  }
+
   .audience-grid {
     grid-template-columns: 1fr;
   }

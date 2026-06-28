@@ -104,7 +104,7 @@
       }),
       { threshold: 0.25, rootMargin: '0px 0px -40px 0px' }
     );
-    document.querySelectorAll('.section-head h2, .cta-band h2, .hero h1, .page-hero-inner h1').forEach(el => {
+    document.querySelectorAll('.section-head h2, .cta-band h2, .hero h1').forEach(el => {
       el.classList.add('sfx-heading');
       headObs.observe(el);
     });
