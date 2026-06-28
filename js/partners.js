@@ -58,11 +58,12 @@
    * JS-driven infinite marquee — immune to prefers-reduced-motion.
    * direction: 1 = left (default for brands), -1 = right (for platforms)
    */
-  function startJsMarquee(track, speed, direction) {
+  function startJsMarquee(track, speed, direction, loopWidth) {
     speed     = speed     || 0.6;
     direction = direction || 1;   // 1 = left, -1 = right
     let x      = 0;
     let paused = false;
+    let loop   = loopWidth || 0;
 
     track.addEventListener("mouseenter", () => { paused = true; });
     track.addEventListener("mouseleave", () => { paused = false; });
@@ -70,11 +71,16 @@
     function tick() {
       if (!paused) {
         x -= speed * direction;
-        const halfWidth = track.scrollWidth / 2;
-        // Wrap in both directions
-        if (x <= -halfWidth) x = 0;
-        if (x > 0)           x = -halfWidth;
-        track.style.transform = `translateX(${x}px)`;
+        if (!loop) {
+          loop = track.dataset.loopWidth
+            ? Number(track.dataset.loopWidth)
+            : track.scrollWidth / 2;
+        }
+        if (loop > 0) {
+          if (x <= -loop) x += loop;
+          if (x > 0) x -= loop;
+        }
+        track.style.transform = `translate3d(${x}px, 0, 0)`;
       }
       requestAnimationFrame(tick);
     }
@@ -91,38 +97,29 @@
     const tiles     = items.map(item => createLogoTile(item, isMarquee));
     tiles.forEach(t => root.appendChild(t));
 
-    if (isMarquee) {
-      // Duplicate set for seamless loop (no "and many more" on platforms)
-      const isBrand = root.id === "brand-logos";
-      if (isBrand) {
-        const moreTile = createAndManyMore();
-        root.appendChild(moreTile);
-        tiles.forEach(t => root.appendChild(t.cloneNode(true)));
-        root.appendChild(moreTile.cloneNode(true));
+      if (isMarquee) {
+        const isBrand = root.id === "brand-logos";
+        const template = tiles.slice();
+
+        if (isBrand) {
+          const moreTile = createAndManyMore();
+          root.appendChild(moreTile);
+          template.push(moreTile);
+        }
+
+        const setWidth = root.scrollWidth;
+        const viewportW = root.parentElement?.clientWidth || window.innerWidth;
+
+        template.forEach((node) => root.appendChild(node.cloneNode(true)));
+
+        while (root.scrollWidth < viewportW * 2 + setWidth) {
+          template.forEach((node) => root.appendChild(node.cloneNode(true)));
+        }
+
+        root.style.animation = "none";
+        startJsMarquee(root, 0.6, isReverse ? -1 : 1, setWidth);
+
       } else {
-        tiles.forEach(t => root.appendChild(t.cloneNode(true)));
-      }
-
-      // Remove CSS animation — JS drives it instead
-      root.style.animation = "none";
-
-      // Wait for images, with 1s timeout fallback for broken/slow paths
-      const imgs      = Array.from(root.querySelectorAll("img"));
-      const allLoaded = imgs.map(img =>
-        img.complete
-          ? Promise.resolve()
-          : new Promise(res => {
-              img.addEventListener("load",  res, { once: true });
-              img.addEventListener("error", res, { once: true });
-            })
-      );
-      const timeout = new Promise(res => setTimeout(res, 1000));
-
-      Promise.race([Promise.all(allLoaded), timeout]).then(() =>
-        startJsMarquee(root, 0.6, isReverse ? -1 : 1)
-      );
-
-    } else {
       tiles.forEach((tile, i) => {
         if (i > 0) tile.classList.add(`reveal-delay-${Math.min((i % 3) + 1, 3)}`);
       });

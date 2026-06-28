@@ -1719,12 +1719,18 @@ section.bm-intro-section.hero::after {
   display: flex;
   gap: 1.5rem;
   width: max-content;
-  animation: marquee 20s linear infinite;
+  will-change: transform;
   font-size: 0.8125rem;
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--on-dark-muted);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.expertise-track[data-ticker-ready] {
+  opacity: 1;
 }
 
 .ticker-sep {

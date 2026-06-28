@@ -155,6 +155,98 @@
     });
   }
 
+  // ── Expertise ticker (hero) — fill viewport, then loop seamlessly ──
+  const expertiseTrack = document.querySelector("[data-expertise-ticker]");
+  if (expertiseTrack) {
+    const expertiseRoot = expertiseTrack.closest(".expertise-ticker");
+    let loopWidth = 0;
+    let offsetX = 0;
+    let ticking = false;
+
+    function measureSetWidth() {
+      const probe = document.createElement("div");
+      probe.style.cssText = "position:absolute;visibility:hidden;display:flex;gap:1.5rem;width:max-content;white-space:nowrap;";
+      probe.className = expertiseTrack.className;
+      Array.from(expertiseTrack.children).forEach((node) => {
+        probe.appendChild(node.cloneNode(true));
+      });
+      expertiseRoot.appendChild(probe);
+      const width = probe.scrollWidth;
+      probe.remove();
+      return width;
+    }
+
+    function fillTrack() {
+      const template = Array.from(expertiseTrack.children).map((node) => node.cloneNode(true));
+      if (!template.length || !expertiseRoot) return 0;
+
+      expertiseTrack.replaceChildren(...template.map((node) => node.cloneNode(true)));
+
+      const setWidth = measureSetWidth();
+      if (!setWidth) return 0;
+
+      const viewportW = expertiseRoot.clientWidth || window.innerWidth;
+      const minWidth = viewportW * 2 + setWidth;
+
+      while (expertiseTrack.scrollWidth < minWidth) {
+        template.forEach((node) => expertiseTrack.appendChild(node.cloneNode(true)));
+      }
+
+      return setWidth;
+    }
+
+    function normalizeOffset() {
+      if (!loopWidth) return;
+      while (offsetX <= -loopWidth) offsetX += loopWidth;
+      while (offsetX > 0) offsetX -= loopWidth;
+    }
+
+    function render() {
+      expertiseTrack.style.transform = `translate3d(${offsetX}px, 0, 0)`;
+    }
+
+    function remeasure() {
+      const prevLoop = loopWidth;
+      loopWidth = fillTrack();
+      if (prevLoop && loopWidth) {
+        offsetX = (offsetX / prevLoop) * loopWidth;
+      }
+      normalizeOffset();
+      render();
+      expertiseTrack.setAttribute("data-ticker-ready", "");
+    }
+
+    function tick() {
+      if (loopWidth > 0) {
+        offsetX -= 0.45;
+        normalizeOffset();
+        render();
+      }
+      requestAnimationFrame(tick);
+    }
+
+    function start() {
+      remeasure();
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(tick);
+      }
+    }
+
+    start();
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(start).catch(start);
+    }
+
+    window.addEventListener("resize", start, { passive: true });
+
+    if (typeof ResizeObserver !== "undefined" && expertiseRoot) {
+      const ro = new ResizeObserver(start);
+      ro.observe(expertiseRoot);
+    }
+  }
+
   // ── Smooth anchor scroll ──
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", (e) => {
