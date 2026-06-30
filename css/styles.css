@@ -2869,6 +2869,11 @@ section.bm-intro-section.hero::after {
   display: block;
 }
 
+.form-success.form-success--error {
+  background: #fef2f2;
+  color: #991b1b;
+}
+
 /* ── FAQ ── */
 .faq-list {
   max-width: 720px;
