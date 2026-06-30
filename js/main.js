@@ -8,12 +8,7 @@
 
   // ── Header scroll state ──
   if (header) {
-    // Trigger frosted glass after scrolling past the hero / first purple section
-    const heroEl = document.querySelector(".hero, .page-hero");
-    const getThreshold = () => heroEl
-      ? Math.max(heroEl.offsetHeight - header.offsetHeight, 80)
-      : 80;
-    const onScroll = () => header.classList.toggle("scrolled", window.scrollY > getThreshold());
+    const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 1);
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
   }
