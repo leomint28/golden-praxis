@@ -91,32 +91,67 @@
     counters.forEach((el) => counterObserver.observe(el));
   }
 
-  // ── Contact form (mailto fallback) ──
+  // ── Contact form (Formspree — sends directly to company inbox) ──
   if (contactForm) {
-    contactForm.addEventListener("submit", (e) => {
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const defaultBtnText = submitBtn ? submitBtn.textContent : "";
+
+    contactForm.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      const data = new FormData(contactForm);
-      const subject = data.get("subject") || data.get("interest") || "Website inquiry";
-      const body = [
-        `Name: ${data.get("name")}`,
-        `Email: ${data.get("email")}`,
-        `Phone: ${data.get("phone") || "—"}`,
-        `Company: ${data.get("company") || "—"}`,
-        `Interest: ${data.get("interest") || "—"}`,
-        "",
-        data.get("message"),
-      ].join("\n");
-
-      window.location.href = `mailto:info@goldenpraxis.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-      if (formSuccess) {
-        formSuccess.classList.add("visible");
-        formSuccess.textContent =
-          "Thank you — your email client should open with your message ready to send.";
+      if (!contactForm.checkValidity()) {
+        contactForm.reportValidity();
+        return;
       }
 
-      contactForm.reset();
+      const data = new FormData(contactForm);
+      const interest = data.get("interest") || "General inquiry";
+      data.set("_subject", `Golden Praxis inquiry: ${interest}`);
+      if (data.get("email")) {
+        data.set("_replyto", data.get("email"));
+      }
+
+      if (formSuccess) {
+        formSuccess.classList.remove("visible", "form-success--error");
+      }
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending…";
+      }
+
+      try {
+        const response = await fetch(contactForm.action, {
+          method: "POST",
+          body: data,
+          headers: { Accept: "application/json" },
+        });
+
+        const result = await response.json().catch(() => ({}));
+
+        if (!response.ok) {
+          throw new Error(result.error || "Unable to send message.");
+        }
+
+        contactForm.reset();
+
+        if (formSuccess) {
+          formSuccess.textContent =
+            "Thank you — your message has been sent. We'll get back to you soon.";
+          formSuccess.classList.add("visible");
+        }
+      } catch {
+        if (formSuccess) {
+          formSuccess.textContent =
+            "Something went wrong. Please try again or email info@goldenpraxis.com directly.";
+          formSuccess.classList.add("visible", "form-success--error");
+        }
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = defaultBtnText;
+        }
+      }
     });
   }
 
